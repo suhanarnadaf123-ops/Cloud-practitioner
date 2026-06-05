@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.env
+venv/
+env/
+
+# Word documents
+*.docx
+
+# Flask
+instance/
+.webassets-cache
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
