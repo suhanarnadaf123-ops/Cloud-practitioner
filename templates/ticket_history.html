@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Ticket History - TeleSupport Hub{% endblock %}
+
+{% block content %}
+<div class="glass-panel" style="margin-top: 2rem;">
+    <style>
+        .priority-high { background: var(--danger-color); }
+        .priority-normal { background: var(--primary-color); }
+    </style>
+    <h2>Your Support Tickets</h2>
+    <p>A history of all your submitted support requests.</p>
+    
+    <div style="margin-top: 2rem;">
+        {% if tickets %}
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="border-bottom: 1px solid var(--border-color); text-align: left;">
+                        <th style="padding: 1rem;">Ticket ID</th>
+                        <th style="padding: 1rem;">Plan Type</th>
+                        <th style="padding: 1rem;">Priority</th>
+                        <th style="padding: 1rem;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ticket in tickets %}
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1rem;">#{{ ticket.id }}</td>
+                        <td style="padding: 1rem;">{{ ticket.plan_type }}</td>
+                        <td style="padding: 1rem;">
+                            <span class="{% if ticket.priority == 'High' %}priority-high{% else %}priority-normal{% endif %}" style="padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">
+                                {{ ticket.priority }}
+                            </span>
+                        </td>
+                        <td style="padding: 1rem;">{{ ticket.description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You haven't submitted any support tickets yet.</p>
+        {% endif %}
+    </div>
+    
+    <a href="/dashboard" class="btn btn-secondary mt-4">Back to Dashboard</a>
+</div>
+{% endblock %}

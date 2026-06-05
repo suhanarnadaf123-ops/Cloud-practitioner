@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Register - TeleSupport Hub{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="glass-panel auth-card" style="max-width: 500px;">
+        <h2 class="text-center">Create Account</h2>
+        <p class="text-center mb-4">Join TeleSupport Hub today</p>
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="text" id="mobile" name="mobile" required placeholder="+1 234 567 890">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="••••••••">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required placeholder="Enter your full address"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Register</button>
+        </form>
+        <p class="text-center mt-4" style="font-size: 0.875rem;">
+            Already have an account? <a href="/login" style="color: var(--primary-color); text-decoration: none;">Login</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

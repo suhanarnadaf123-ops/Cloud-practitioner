@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Home - TeleSupport Hub{% endblock %}
+
+{% block content %}
+<div class="text-center" style="margin-top: 5rem; animation: slideUp 0.6s ease-out;">
+    <h1 style="font-size: 3.5rem; margin-bottom: 1rem; background: linear-gradient(to right, #60a5fa, #a78bfa); -webkit-background-clip: text; background-clip: text; color: transparent;">Welcome to TeleSupport Hub</h1>
+    <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto 2.5rem;">
+        Your premium destination for fast, reliable, and intelligent customer support. Get your issues resolved with priority.
+    </p>
+    <div class="flex justify-center gap-4">
+        <a href="/register" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;">Get Started</a>
+        <a href="/login" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1.125rem;">Login Now</a>
+    </div>
+</div>
+{% endblock %}

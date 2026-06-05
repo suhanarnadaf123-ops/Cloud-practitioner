@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Raise Ticket - TeleSupport Hub{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="glass-panel auth-card" style="max-width: 600px;">
+        <h2 class="text-center">Raise a Support Ticket</h2>
+        <p class="text-center mb-4">Provide details about your issue so we can help you efficiently.</p>
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="plan_type">Plan Type</label>
+                <input type="text" id="plan_type" name="plan_type" required placeholder="e.g. Premium, Basic">
+            </div>
+            
+            <div class="form-group">
+                <label for="priority">Priority</label>
+                <select id="priority" name="priority" required>
+                    <option value="" disabled selected>Select priority level</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Issue Description</label>
+                <textarea id="description" name="description" required placeholder="Please describe your issue in detail..."></textarea>
+            </div>
+            
+            <div class="flex gap-4 mt-4">
+                <a href="/dashboard" class="btn btn-secondary" style="flex: 1; text-align: center;">Cancel</a>
+                <button type="submit" class="btn btn-primary" style="flex: 2;">Submit Ticket</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

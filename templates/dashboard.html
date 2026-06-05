@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - TeleSupport Hub{% endblock %}
+
+{% block content %}
+<div class="glass-panel" style="margin-top: 2rem;">
+    <h2>Dashboard</h2>
+    <p>Welcome to your TeleSupport Hub control center.</p>
+    
+    <div style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+        <div style="padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.1);">
+            <h3 style="font-size: 1.25rem;">Need Assistance?</h3>
+            <p style="font-size: 0.875rem;">Create a new ticket and our support team will help you right away.</p>
+            <a href="/raise_ticket" class="btn btn-primary mt-4">Raise Ticket</a>
+        </div>
+        
+        <div style="padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-color); background: rgba(30, 41, 59, 0.5);">
+            <h3 style="font-size: 1.25rem;">Buy Services</h3>
+            <p style="font-size: 0.875rem;">Browse and purchase new support service plans.</p>
+            <a href="/choose_category" class="btn btn-primary mt-4" style="background: var(--success-color);">Browse Plans</a>
+        </div>
+
+        <div style="padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-color); background: rgba(30, 41, 59, 0.5);">
+            <h3 style="font-size: 1.25rem;">Your Tickets</h3>
+            <p style="font-size: 0.875rem;">View and manage your past and ongoing support requests.</p>
+            <a href="/ticket_history" class="btn btn-secondary mt-4">View History</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Agent Login - TeleSupport Hub{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="glass-panel auth-card">
+        <h2 class="text-center">Agent Portal</h2>
+        <p class="text-center mb-4">Please login to access support tickets</p>
+        
+        {% if error %}
+        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid var(--danger-color); color: var(--danger-color); padding: 0.75rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center; font-size: 0.875rem;">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="email">Agent Email</label>
+                <input type="email" id="email" name="email" required placeholder="agent@telesupport.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; background: var(--success-color);">Agent Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Choose Category - TeleSupport Hub{% endblock %}
+
+{% block content %}
+<div class="glass-panel" style="margin-top: 2rem;">
+    <h2>Available Services</h2>
+    <p>Select a category below to purchase a new service plan.</p>
+    
+    <div style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+        {% if categories %}
+            {% for category in categories %}
+                <div style="padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-color); background: rgba(30, 41, 59, 0.5);">
+                    <h3 style="font-size: 1.25rem;">{{ category.name }}</h3>
+                    <p style="font-size: 0.875rem;">{{ category.description }}</p>
+                    <form method="POST" action="/buy_service">
+                        <input type="hidden" name="service_id" value="{{ category.id }}">
+                        <button type="submit" class="btn btn-primary mt-4">Buy Service</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div style="padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-color); background: rgba(30, 41, 59, 0.5);">
+                <h3 style="font-size: 1.25rem;">Premium Support Plan</h3>
+                <p style="font-size: 0.875rem;">Get 24/7 priority support for all your devices.</p>
+                <form method="POST" action="/buy_service">
+                    <input type="hidden" name="service_id" value="1">
+                    <button type="submit" class="btn btn-primary mt-4">Buy Service</button>
+                </form>
+            </div>
+            <div style="padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-color); background: rgba(30, 41, 59, 0.5);">
+                <h3 style="font-size: 1.25rem;">Basic Maintenance</h3>
+                <p style="font-size: 0.875rem;">Monthly checkups and basic troubleshooting assistance.</p>
+                <form method="POST" action="/buy_service">
+                    <input type="hidden" name="service_id" value="2">
+                    <button type="submit" class="btn btn-primary mt-4">Buy Service</button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
